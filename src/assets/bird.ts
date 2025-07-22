@@ -34,7 +34,7 @@ export class Bird extends ex.Actor {
 
         this.startSprite = spriteSheet.getSprite(1,0);
         this.upAnimation = ex.Animation.fromSpriteSheet(spriteSheet, [2, 1, 0], 150, ex.AnimationStrategy.Freeze);
-        this.upAnimation = ex.Animation.fromSpriteSheet(spriteSheet, [1, 1, 2], 150, ex.AnimationStrategy.Freeze);
+        this.downAnimation = ex.Animation.fromSpriteSheet(spriteSheet, [1, 1, 2], 150, ex.AnimationStrategy.Freeze);
 
         this.graphics.add('down', this.downAnimation);
         this.graphics.add('up', this.upAnimation);
