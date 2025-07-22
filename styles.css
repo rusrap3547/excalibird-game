@@ -1,0 +1,13 @@
+htmml,
+body {
+	background-color: black;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+}
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

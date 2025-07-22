@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "typescript": "5.8.3",
+    "vite": "7.0.3"
+  },
+  "dependencies": {
+    "excalibur": "0.30.3"
+  },
+  "name": "excalibird-game",
+  "version": "1.0.0",
+  "description": "Flappy bird copy game",
+  "main": "main.js",
+  "scripts": {
+    "test": "npm run superTest",
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "author": "",
+  "license": "ISC"
+}
