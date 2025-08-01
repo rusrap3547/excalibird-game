@@ -1,9 +1,21 @@
 import * as ex from 'excalibur';
 
-import { Bird } from './assets/bird';
-import { Ground } from './assets/ground';
-import { Pipe } from './assets/pipe';
-import { Level } from './assets/level';
+import { Bird } from './bird';
+import { Ground } from './ground';
+import { Pipe } from './pipe';
+import { Level } from './level';
+import { initMuteButton } from './ui';
+
+
+const positionUI = (game: ex.Engine) => {
+  const ui = document.getElementsByClassName("ui")[0] as HTMLElement;
+  if (ui) {
+    const topLeft = game.screen.screenToPageCoordinates(ex.vec(10, 500 - 40));
+    ui.style.visibility = 'visible';
+    ui.style.left = topLeft.x + 'px';
+    ui.style.top = topLeft.y + 'px';
+  }
+}
 
 const game = new ex.Engine({
     width: 400,
