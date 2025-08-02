@@ -1,8 +1,5 @@
 import * as ex from 'excalibur';
-
-import { Bird } from './bird';
-import { Ground } from './ground';
-import { Pipe } from './pipe';
+import { Resources } from './resources';
 import { Level } from './level';
 import { initMuteButton } from './ui';
 
@@ -18,28 +15,21 @@ const positionUI = (game: ex.Engine) => {
 }
 
 const game = new ex.Engine({
-    width: 400,
-    height: 500,
-    backgroundColor: ex.Color.fromHex("#54c0ca"),
-    pixelArt: true,
-    pixelRatio: 2,
-    displayMode: ex.DisplayMode.FitScreen,
-    scenes: { Level: Level }
+  width: 400,
+  height: 500,
+  backgroundColor: ex.Color.fromHex("#54C0CA"),
+  pixelArt: true,
+  pixelRatio: 2,
+  displayMode: ex.DisplayMode.FitScreen,
+  scenes: { Level }
 });
 
-const bird = new Bird();
-game.add(bird);
 
-const ground = new Ground(ex.vec(0, game.screen.drawHeight - 64));
-game.add(ground);
-
-const topPipe = new Pipe(ex.vec(game.screen.drawWidth, 150), 'top');
-game.add(topPipe);
-
-const bottomPipe = new Pipe(ex.vec(game.screen.drawWidth, 300), 'bottom');
-game.add(bottomPipe)
-
-game.start().then(() => {
-    game.goToScene('Level');
+const loader = new ex.Loader(Object.values(Resources));
+game.start(loader).then(() => {
+  game.goToScene('Level');
+  positionUI(game);
+  initMuteButton();
 });
 
+game.screen.events.on('resize', () => positionUI(game));
